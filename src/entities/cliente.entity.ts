@@ -19,4 +19,16 @@ export class Cliente {
 
   @Column({ type: 'varchar', length: 50 })
   contact_last_name: string;
+
+  @Column({ type: 'varchar', length: 100, unique: true })
+  email_2: string;
+
+  @Column({ type: 'varchar', length: 15 })
+  phone_number_2: string;
+
+  @Column({ type: 'varchar', length: 50 })
+  contact_first_name_2: string;
+
+  @Column({ type: 'varchar', length: 50 })
+  contact_last_name_2: string;
 }

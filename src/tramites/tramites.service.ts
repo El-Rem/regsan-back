@@ -167,9 +167,13 @@ export class TramitesService {
     tramite: Tramite,
     emails: string[],
   ) {
+    const recipientEmails = [client.email];
+    if (client.email_2 && client.email_2.trim()) {
+      recipientEmails.push(client.email_2);
+    }
     const clientMailOptions = {
       from: 'info@deligrano.com',
-      to: client.email,
+      to: recipientEmails.join(', '),
       subject: 'Nuevo Trámite Registrado',
       html: `<p>Hola ${client.contact_first_name} ${client.contact_last_name},</p>
         <p>Se ha registrado un nuevo trámite con ID ${tramite.id}.</p>
@@ -266,9 +270,14 @@ export class TramitesService {
     });
     if (!client) return;
 
+    const recipientEmails = [client.email];
+    if (client.email_2 && client.email_2.trim()) {
+      recipientEmails.push(client.email_2);
+    }
+
     const mailOptions = {
       from: 'info@deligrano.com',
-      to: client.email,
+      to: recipientEmails.join(', '),
       subject: 'Actualización de datos técnicos',
       html: `
         <p>Hola <strong>${client.contact_first_name} ${client.contact_last_name}</strong>,</p>
@@ -315,9 +324,13 @@ export class TramitesService {
     tramite: Tramite,
     client: Cliente,
   ): Promise<void> {
+    const recipientEmails = [client.email];
+    if (client.email_2 && client.email_2.trim()) {
+      recipientEmails.push(client.email_2);
+    }
     const mailOptions = {
       from: 'info@deligrano.com',
-      to: client.email,
+      to: recipientEmails.join(', '),
       subject: `Actualización de facturación - Trámite ${tramite.id}`,
       html: `
         <p>Estimado ${client.business_name},</p>
