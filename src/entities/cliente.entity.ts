@@ -20,7 +20,7 @@ export class Cliente {
   @Column({ type: 'varchar', length: 50 })
   contact_last_name: string;
 
-  @Column({ type: 'varchar', length: 100, unique: true })
+  @Column({ type: 'varchar', length: 100 })
   email_2: string;
 
   @Column({ type: 'varchar', length: 15 })
