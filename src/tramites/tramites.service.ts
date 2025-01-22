@@ -216,40 +216,12 @@ export class TramitesService {
             <td>${tramite.start_date}</td>
           </tr>
           <tr>
-            <td><strong>Fecha de Fin</strong></td>
-            <td>${tramite.end_date}</td>
-          </tr>
-          <tr>
             <td><strong>Estatus</strong></td>
             <td>${tramite.status}</td>
           </tr>
           <tr>
-            <td><strong>Proceso del trámite</strong></td>
-            <td>${tramite.technical_data}</td>
-          </tr>
-          <tr>
-            <td><strong>Porcentaje de avance</strong></td>
-            <td>${tramite.completion_percentage}</td>
-          </tr>
-          <tr>
-            <td><strong>Fecha de Ingreso a COFEPRIS</strong></td>
-            <td>${tramite.cofepris_entry_date}</td>
-          </tr>
-          <tr>
-            <td><strong>Estatus de COFEPRIS</strong></td>
-            <td>${tramite.cofepris_status}</td>
-          </tr>
-          <tr>
-            <td><strong>Número de Entrada a COFEPRIS</strong></td>
-            <td><a href="${tramite.cofepris_link}">${tramite.cofepris_entry_number}</a></td>
-          </tr>
-          <tr>
             <td><strong>Consultor Asignado</strong></td>
             <td>${tramite.assigned_consultant}</td>
-          </tr>
-          <tr>
-            <td><strong>Información Adicional</strong></td>
-            <td>${tramite.additional_information}</td>
           </tr>
         </table>`,
     };
