@@ -229,8 +229,55 @@ export class TramitesService {
     const salesMailOptions = {
       from: 'info@deligrano.com',
       to: emails,
-      subject: 'Nuevo Trámite Registrado',
-      text: `Se ha registrado un nuevo trámite para el cliente ${client.business_name} con ID de tramite ${tramite.id}.`,
+      subject: `Nuevo Trámite Registrado ${tramite.id}`,
+      text: `<p>Estimado equipo de ventas, se ha registrado un nuevo trámite para el cliente ${client.business_name} con ID de tramite ${tramite.id} en la fecha.</p>
+            <p>Información del trámite:</p>
+            <table border="1" cellpadding="5" cellspacing="0">
+              <tr>
+                <td><strong>RFC</strong></td>
+                <td>${tramite.client_rfc}</td>
+              </tr>
+              <tr>
+                <td><strong>Denominación distintiva</strong></td>
+                <td>${tramite.distinctive_denomination}</td>
+              </tr>
+              <tr>
+                <td><strong>Nombre Genérico</strong></td>
+                <td>${tramite.generic_name}</td>
+              </tr>
+              <tr>
+                <td><strong>Fabricante</strong></td>
+                <td>${tramite.product_manufacturer}</td>
+              </tr>
+              <tr>
+                <td><strong>Nombre del Servicio</strong></td>
+                <td>${tramite.service_name}</td>
+              </tr>
+              <tr>
+                <td><strong>Insumo</strong></td>
+                <td>${tramite.input_value}</td>
+              </tr>
+              <tr>
+                <td><strong>Tipo</strong></td>
+                <td>${tramite.type_description}</td>
+              </tr>
+              <tr>
+                <td><strong>Clase</strong></td>
+                <td>${tramite.class_name}</td>
+              </tr>
+              <tr>
+                <td><strong>Fecha de Inicio</strong></td>
+                <td>${tramite.start_date}</td>
+              </tr>
+              <tr>
+                <td><strong>Estatus</strong></td>
+                <td>${tramite.status}</td>
+              </tr>
+              <tr>
+                <td><strong>Consultor Asignado</strong></td>
+                <td>${tramite.assigned_consultant}</td>
+              </tr>
+            </table>`,
     };
 
     return [clientMailOptions, salesMailOptions];
