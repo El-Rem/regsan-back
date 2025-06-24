@@ -28,4 +28,25 @@ export class UpdateClienteDto extends PartialType(CreateClienteDto) {
 
   @ApiProperty({ example: 'Perez', description: 'Apellido del contacto' })
   contact_last_name: string;
+
+  @ApiProperty({
+    example: 'cliente@example.com',
+    description: 'Correo electrónico del segundo cliente',
+  })
+  email_2: string;
+
+  @ApiProperty({
+    example: '1234567890',
+    description: 'Número de teléfono del segundo cliente',
+  })
+  phone_number_2: string;
+
+  @ApiProperty({ example: 'Juan', description: 'Nombre del segundo contacto' })
+  contact_first_name_2: string;
+
+  @ApiProperty({
+    example: 'Perez',
+    description: 'Apellido del segundo contacto',
+  })
+  contact_last_name_2: string;
 }
