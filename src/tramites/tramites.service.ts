@@ -167,9 +167,13 @@ export class TramitesService {
     tramite: Tramite,
     emails: string[],
   ) {
+    const recipientEmails = [client.email];
+    if (client.email_2 && client.email_2.trim()) {
+      recipientEmails.push(client.email_2);
+    }
     const clientMailOptions = {
       from: 'info@deligrano.com',
-      to: client.email,
+      to: recipientEmails.join(', '),
       subject: 'Nuevo Trámite Registrado',
       html: `<p>Hola ${client.contact_first_name} ${client.contact_last_name},</p>
         <p>Se ha registrado un nuevo trámite con ID ${tramite.id}.</p>
@@ -212,40 +216,12 @@ export class TramitesService {
             <td>${tramite.start_date}</td>
           </tr>
           <tr>
-            <td><strong>Fecha de Fin</strong></td>
-            <td>${tramite.end_date}</td>
-          </tr>
-          <tr>
             <td><strong>Estatus</strong></td>
             <td>${tramite.status}</td>
           </tr>
           <tr>
-            <td><strong>Proceso del trámite</strong></td>
-            <td>${tramite.technical_data}</td>
-          </tr>
-          <tr>
-            <td><strong>Porcentaje de avance</strong></td>
-            <td>${tramite.completion_percentage}</td>
-          </tr>
-          <tr>
-            <td><strong>Fecha de Ingreso a COFEPRIS</strong></td>
-            <td>${tramite.cofepris_entry_date}</td>
-          </tr>
-          <tr>
-            <td><strong>Estatus de COFEPRIS</strong></td>
-            <td>${tramite.cofepris_status}</td>
-          </tr>
-          <tr>
-            <td><strong>Número de Entrada a COFEPRIS</strong></td>
-            <td><a href="${tramite.cofepris_link}">${tramite.cofepris_entry_number}</a></td>
-          </tr>
-          <tr>
             <td><strong>Consultor Asignado</strong></td>
             <td>${tramite.assigned_consultant}</td>
-          </tr>
-          <tr>
-            <td><strong>Información Adicional</strong></td>
-            <td>${tramite.additional_information}</td>
           </tr>
         </table>`,
     };
@@ -253,8 +229,55 @@ export class TramitesService {
     const salesMailOptions = {
       from: 'info@deligrano.com',
       to: emails,
-      subject: 'Nuevo Trámite Registrado',
-      text: `Se ha registrado un nuevo trámite para el cliente ${client.business_name} con ID de tramite ${tramite.id}.`,
+      subject: `Nuevo Trámite Registrado ${tramite.id}`,
+      text: `<p>Estimado equipo de ventas, se ha registrado un nuevo trámite para el cliente ${client.business_name} con ID de tramite ${tramite.id} en la fecha.</p>
+            <p>Información del trámite:</p>
+            <table border="1" cellpadding="5" cellspacing="0">
+              <tr>
+                <td><strong>RFC</strong></td>
+                <td>${tramite.client_rfc}</td>
+              </tr>
+              <tr>
+                <td><strong>Denominación distintiva</strong></td>
+                <td>${tramite.distinctive_denomination}</td>
+              </tr>
+              <tr>
+                <td><strong>Nombre Genérico</strong></td>
+                <td>${tramite.generic_name}</td>
+              </tr>
+              <tr>
+                <td><strong>Fabricante</strong></td>
+                <td>${tramite.product_manufacturer}</td>
+              </tr>
+              <tr>
+                <td><strong>Nombre del Servicio</strong></td>
+                <td>${tramite.service_name}</td>
+              </tr>
+              <tr>
+                <td><strong>Insumo</strong></td>
+                <td>${tramite.input_value}</td>
+              </tr>
+              <tr>
+                <td><strong>Tipo</strong></td>
+                <td>${tramite.type_description}</td>
+              </tr>
+              <tr>
+                <td><strong>Clase</strong></td>
+                <td>${tramite.class_name}</td>
+              </tr>
+              <tr>
+                <td><strong>Fecha de Inicio</strong></td>
+                <td>${tramite.start_date}</td>
+              </tr>
+              <tr>
+                <td><strong>Estatus</strong></td>
+                <td>${tramite.status}</td>
+              </tr>
+              <tr>
+                <td><strong>Consultor Asignado</strong></td>
+                <td>${tramite.assigned_consultant}</td>
+              </tr>
+            </table>`,
     };
 
     return [clientMailOptions, salesMailOptions];
@@ -266,9 +289,14 @@ export class TramitesService {
     });
     if (!client) return;
 
+    const recipientEmails = [client.email];
+    if (client.email_2 && client.email_2.trim()) {
+      recipientEmails.push(client.email_2);
+    }
+
     const mailOptions = {
       from: 'info@deligrano.com',
-      to: client.email,
+      to: recipientEmails.join(', '),
       subject: 'Actualización de datos técnicos',
       html: `
         <p>Hola <strong>${client.contact_first_name} ${client.contact_last_name}</strong>,</p>
@@ -315,9 +343,13 @@ export class TramitesService {
     tramite: Tramite,
     client: Cliente,
   ): Promise<void> {
+    const recipientEmails = [client.email];
+    if (client.email_2 && client.email_2.trim()) {
+      recipientEmails.push(client.email_2);
+    }
     const mailOptions = {
       from: 'info@deligrano.com',
-      to: client.email,
+      to: recipientEmails.join(', '),
       subject: `Actualización de facturación - Trámite ${tramite.id}`,
       html: `
         <p>Estimado ${client.business_name},</p>
