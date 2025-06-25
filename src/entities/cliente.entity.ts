@@ -8,7 +8,7 @@ export class Cliente {
   @Column({ type: 'varchar', length: 100 })
   business_name: string;
 
-  @Column({ type: 'varchar', length: 100, unique: true })
+  @Column({ type: 'varchar', length: 100 })
   email: string;
 
   @Column({ type: 'varchar', length: 15 })
