@@ -200,6 +200,10 @@ export class TramitesService {
             <td>${tramite.service_name}</td>
           </tr>
           <tr>
+                <td><strong>Nombre del Sub Servicio</strong></td>
+                <td>${tramite.sub_service_name}</td>
+              </tr>
+          <tr>
             <td><strong>Insumo</strong></td>
             <td>${tramite.input_value}</td>
           </tr>
@@ -252,6 +256,10 @@ export class TramitesService {
               <tr>
                 <td><strong>Nombre del Servicio</strong></td>
                 <td>${tramite.service_name}</td>
+              </tr>
+              <tr>
+                <td><strong>Nombre del Sub Servicio</strong></td>
+                <td>${tramite.sub_service_name}</td>
               </tr>
               <tr>
                 <td><strong>Insumo</strong></td>

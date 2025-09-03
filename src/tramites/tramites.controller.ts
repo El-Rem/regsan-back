@@ -75,6 +75,7 @@ export class TramitesController {
       tramite.generic_name = createTramiteDto.generic_name;
       tramite.product_manufacturer = createTramiteDto.product_manufacturer;
       tramite.service_name = createTramiteDto.service_name;
+      tramite.sub_service_name = createTramiteDto.sub_service_name;
       tramite.input_value = createTramiteDto.input_value;
       tramite.type_description = createTramiteDto.type_description;
       tramite.class_name = createTramiteDto.class_name;
@@ -127,6 +128,7 @@ export class TramitesController {
       tramite.generic_name = updateTramiteDto.generic_name;
       tramite.product_manufacturer = updateTramiteDto.product_manufacturer;
       tramite.service_name = updateTramiteDto.service_name;
+      tramite.sub_service_name = updateTramiteDto.sub_service_name;
       tramite.input_value = updateTramiteDto.input_value;
       tramite.type_description = updateTramiteDto.type_description;
       tramite.class_name = updateTramiteDto.class_name;

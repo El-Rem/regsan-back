@@ -28,6 +28,12 @@ export class CreateTramiteDto {
   })
   service_name: string;
 
+  @ApiProperty({
+    example: 'Nombre del Sub servicio',
+    description: 'Na',
+  })
+  sub_service_name: string;
+
   @ApiProperty({ example: 'NA', description: 'Valor de entrada' })
   input_value: string;
 

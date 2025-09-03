@@ -29,6 +29,9 @@ export class Tramite {
   service_name: string;
 
   @Column({ type: 'varchar', length: 100 })
+  sub_service_name: string;
+
+  @Column({ type: 'varchar', length: 100 })
   input_value: string;
 
   @Column({ type: 'varchar', length: 100 })
