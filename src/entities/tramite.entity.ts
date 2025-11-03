@@ -1,4 +1,11 @@
-import { Entity, Column, ManyToOne, JoinColumn, PrimaryColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  ManyToOne,
+  JoinColumn,
+  PrimaryColumn,
+  Generated,
+} from 'typeorm';
 import { Cliente } from './cliente.entity';
 
 @Entity('procedures')
@@ -13,7 +20,8 @@ export class Tramite {
   @JoinColumn({ name: 'client_rfc' })
   client: Cliente;
 
-  @Column({ type: 'int', unique: true })
+  @Column({ type: 'int', unique: true, update: false })
+  @Generated('increment')
   number: number;
 
   @Column({ type: 'varchar', length: 100 })

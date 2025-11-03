@@ -1,9 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateTramiteDto {
-  @ApiProperty({ example: 'Id de tramite', description: 'Id' })
-  id: string;
-
   @ApiProperty({ example: 'ABC1234567890', description: 'RFC del cliente' })
   client_rfc: string;
 

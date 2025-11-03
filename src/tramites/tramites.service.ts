@@ -75,9 +75,7 @@ export class TramitesService {
   }
 
   async create(tramite: Tramite): Promise<Tramite> {
-    if (!tramite.id?.trim()) {
-      tramite.id = uuidv4();
-    }
+    tramite.id = uuidv4();
 
     const existingTramite = await this.tramiteRepository.findOne({
       where: { id: tramite.id },

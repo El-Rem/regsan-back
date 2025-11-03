@@ -68,7 +68,7 @@ export class TramitesController {
   ) {
     try {
       const tramite = new Tramite();
-      tramite.id = createTramiteDto.id;
+      tramite.id = uuidv4();
       tramite.client_rfc = createTramiteDto.client_rfc;
       tramite.distinctive_denomination =
         createTramiteDto.distinctive_denomination;
@@ -90,14 +90,11 @@ export class TramitesController {
       tramite.cofepris_link = createTramiteDto.cofepris_link;
       tramite.assigned_consultant = createTramiteDto.assigned_consultant;
       tramite.additional_information = createTramiteDto.additional_information;
-      if (!tramite.id || tramite.id.trim() === '') {
-        tramite.id = uuidv4();
-      }
-
-      await this.tramitesService.create(tramite);
+      const saved = await this.tramitesService.create(tramite);
       return res.status(HttpStatus.CREATED).json({
         statusCode: HttpStatus.CREATED,
         message: 'El trámite ha sido creado.',
+        data: { id: saved.id, number: saved.number },
       });
     } catch (error) {
       if (error instanceof ConflictException) {
@@ -173,7 +170,7 @@ export class TramitesController {
       await this.tramitesService.remove(id);
       return res.status(HttpStatus.OK).json({
         statusCode: HttpStatus.OK,
-        message: 'El cliente ha sido eliminado.',
+        message: 'El trámite ha sido eliminado.',
       });
     } catch (error) {
       if (error instanceof NotFoundException) {
