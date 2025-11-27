@@ -5,6 +5,12 @@ export class CreateTramiteDto {
   client_rfc: string;
 
   @ApiProperty({
+    example: 'QWRT-ADS-1234',
+    description: 'Tramite ID',
+  })
+  id: string;
+
+  @ApiProperty({
     example: 'Denominación Distintiva',
     description: 'Denominación distintiva',
   })

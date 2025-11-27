@@ -68,7 +68,7 @@ export class TramitesController {
   ) {
     try {
       const tramite = new Tramite();
-      tramite.id = uuidv4();
+      tramite.id = createTramiteDto.id;
       tramite.client_rfc = createTramiteDto.client_rfc;
       tramite.distinctive_denomination =
         createTramiteDto.distinctive_denomination;
