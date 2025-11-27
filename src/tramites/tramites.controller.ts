@@ -18,7 +18,6 @@ import { CreateTramiteDto } from '../dto/create-tramite.dto';
 import { UpdateTramiteDto } from '../dto/update-tramite.dto';
 import { Tramite } from '../entities/tramite.entity';
 import { Response } from 'express';
-import { v4 as uuidv4 } from 'uuid';
 import { UpdateTechnicalDataDto } from 'src/dto/update-datos-tecnicos.dto';
 import { UpdateTramiteFacturacionDto } from 'src/dto/update-tramite-facturacion.dto';
 

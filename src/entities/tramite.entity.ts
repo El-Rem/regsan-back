@@ -36,8 +36,8 @@ export class Tramite {
   @Column({ type: 'varchar', length: 100 })
   service_name: string;
 
-  @Column({ type: 'varchar', length: 100 })
-  sub_service_name: string;
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  sub_service_name: string | null;
 
   @Column({ type: 'varchar', length: 100 })
   input_value: string;
@@ -52,7 +52,7 @@ export class Tramite {
   start_date: Date;
 
   @Column({ type: 'date', nullable: true })
-  end_date: Date;
+  end_date: Date | null;
 
   @Column({ type: 'varchar', length: 50 })
   status: string;
@@ -63,44 +63,44 @@ export class Tramite {
   @Column({ type: 'decimal', precision: 5, scale: 2 })
   completion_percentage: number;
 
-  @Column({ type: 'date' })
-  cofepris_entry_date: Date;
+  @Column({ type: 'date', nullable: true })
+  cofepris_entry_date: Date | null;
 
-  @Column({ type: 'varchar', length: 50 })
-  cofepris_status: string;
+  @Column({ type: 'varchar', length: 50, nullable: true })
+  cofepris_status: string | null;
 
-  @Column({ type: 'varchar', length: 100 })
-  cofepris_status_health_registration_number: string;
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  cofepris_status_health_registration_number: string | null;
 
-  @Column({ type: 'varchar', length: 100 })
-  cofepris_status_registrer_number: string;
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  cofepris_status_registrer_number: string | null;
 
-  @Column({ type: 'date' })
-  cofepris_status_prevention_response: Date;
+  @Column({ type: 'date', nullable: true })
+  cofepris_status_prevention_response: Date | null;
 
-  @Column({ type: 'varchar', length: 50 })
-  cofepris_entry_number: string;
+  @Column({ type: 'varchar', length: 50, nullable: true })
+  cofepris_entry_number: string | null;
 
   @Column({ type: 'varchar', length: 255, nullable: true })
-  cofepris_link: string;
+  cofepris_link: string | null;
 
   @Column({ type: 'varchar', length: 50 })
   assigned_consultant: string;
 
   @Column({ type: 'text', nullable: true })
-  additional_information: string;
+  additional_information: string | null;
 
-  @Column({ type: 'text' })
-  billing: string;
+  @Column({ type: 'text', nullable: true })
+  billing: string | null;
 
-  @Column({ type: 'text' })
-  payment_status: string;
+  @Column({ type: 'text', nullable: true })
+  payment_status: string | null;
 
-  @Column({ type: 'date' })
-  payment_date: Date;
+  @Column({ type: 'date', nullable: true })
+  payment_date: Date | null;
 
-  @Column({ type: 'text' })
-  collection_notes: string;
+  @Column({ type: 'text', nullable: true })
+  collection_notes: string | null;
 
   @Column({ type: 'boolean', default: false })
   sales_flag: boolean;

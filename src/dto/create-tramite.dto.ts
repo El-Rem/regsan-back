@@ -34,8 +34,9 @@ export class CreateTramiteDto {
   @ApiProperty({
     example: 'Nombre del Sub servicio',
     description: 'Na',
+    required: false,
   })
-  sub_service_name: string;
+  sub_service_name?: string;
 
   @ApiProperty({ example: 'NA', description: 'Valor de entrada' })
   input_value: string;
@@ -55,8 +56,12 @@ export class CreateTramiteDto {
   @ApiProperty({ example: '2024-01-01', description: 'Fecha de inicio' })
   start_date: Date;
 
-  @ApiProperty({ example: '2024-12-31', description: 'Fecha de fin' })
-  end_date: Date;
+  @ApiProperty({
+    example: '2024-12-31',
+    description: 'Fecha de fin',
+    required: false,
+  })
+  end_date?: Date;
 
   @ApiProperty({ example: 'Pendiente', description: 'Estado' })
   status: string;
@@ -73,23 +78,30 @@ export class CreateTramiteDto {
   @ApiProperty({
     example: '2024-02-15',
     description: 'Fecha de entrada a COFEPRIS',
+    required: false,
   })
-  cofepris_entry_date: Date;
+  cofepris_entry_date?: Date;
 
-  @ApiProperty({ example: 'En Proceso', description: 'Estado en COFEPRIS' })
-  cofepris_status: string;
+  @ApiProperty({
+    example: 'En Proceso',
+    description: 'Estado en COFEPRIS',
+    required: false,
+  })
+  cofepris_status?: string;
 
   @ApiProperty({
     example: 'Número de entrada COFEPRIS',
     description: 'Número de entrada a COFEPRIS',
+    required: false,
   })
-  cofepris_entry_number: string;
+  cofepris_entry_number?: string;
 
   @ApiProperty({
     example: 'https://cofepris.gob.mx',
     description: 'Enlace a COFEPRIS',
+    required: false,
   })
-  cofepris_link: string;
+  cofepris_link?: string;
 
   @ApiProperty({
     example: 'Consultor Asignado',
@@ -100,6 +112,7 @@ export class CreateTramiteDto {
   @ApiProperty({
     example: 'Información adicional',
     description: 'Información adicional',
+    required: false,
   })
-  additional_information: string;
+  additional_information?: string;
 }
